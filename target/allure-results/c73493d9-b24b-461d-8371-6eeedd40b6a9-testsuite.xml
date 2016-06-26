@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1466834669624" stop="1466834792702" version="1.4.16" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Default Suite : kirimo</name>
+    <title>Default Suite : kirimo</title>
+    <test-cases>
+        <test-case start="1466834723142" stop="1466834783353" status="passed">
+            <name>login</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="Genta-Wibowos-MacBook-Pro.local"/>
+                <label name="thread" value="12218@Genta-Wibowos-MacBook-Pro.local.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>
