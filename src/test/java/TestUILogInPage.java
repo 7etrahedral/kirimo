@@ -26,8 +26,8 @@ public class TestUILogInPage extends AndroidSetup {
 
     @Test
     public void verifyInstruction() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.kirimo.driver:id/textViewLoginDesc")));
-        loginpage.getInstructionText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.kirimo.driver:id/textViewLoginDesc")));
+//        loginpage.getInstructionText();
     }
 
 }
