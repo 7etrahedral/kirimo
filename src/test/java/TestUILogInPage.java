@@ -1,3 +1,4 @@
+import jdk.management.resource.internal.inst.ThreadRMHooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.AfterClass;
@@ -17,6 +18,7 @@ public class TestUILogInPage extends AndroidSetup {
     @BeforeClass
     public void setUp() throws MalformedURLException {
         androidSetUp();
+        loginpage = new LoginPage(ad);
     }
 
     @AfterClass
@@ -25,9 +27,9 @@ public class TestUILogInPage extends AndroidSetup {
     }
 
     @Test
-    public void verifyInstruction() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.kirimo.driver:id/textViewLoginDesc")));
+    public void verifyInstruction() throws Exception {
         loginpage.getInstructionText();
+        Thread.sleep(1000);
     }
 
 }

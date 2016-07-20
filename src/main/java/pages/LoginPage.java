@@ -11,8 +11,8 @@ public class LoginPage extends PagesUtility {
 
     private String loginInstruction = "textViewLoginDesc";
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     public void getInstructionText() {

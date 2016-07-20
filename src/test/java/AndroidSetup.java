@@ -14,11 +14,11 @@ import java.util.concurrent.TimeUnit;
 public class AndroidSetup {
 
     protected AndroidDriver ad;
-    protected WebDriverWait wait;
 
     protected void androidSetUp() throws MalformedURLException{
 //        File appDir = new File("/Users/genta/Documents/Job/Kirimo/apk");
-        File appDir = new File("/Users/ogilvydigital/Documents/apk");
+//        File appDir = new File("/Users/ogilvydigital/Documents/apk");
+        File appDir = new File("D:/wib_/Master/apk/");
         File app = new File(appDir, "kirimo-V.1.0.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -35,7 +35,6 @@ public class AndroidSetup {
         capabilities.setCapability("fullReset", true);
 
         ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        wait = new WebDriverWait(ad, 10);
 
         ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
