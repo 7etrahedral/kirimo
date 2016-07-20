@@ -12,14 +12,14 @@ import org.testng.Assert;
  */
 public class PagesUtility {
 
-    protected WebDriver driver;
+    protected WebDriver wd;
 
     public PagesUtility(WebDriver driver) {
-        this.driver = driver;
+        this.wd = driver;
     }
 
     public void waitVisibilityOfElement(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(wd, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         Assert.assertTrue(isElementPresent(locator));
     }
@@ -30,7 +30,7 @@ public class PagesUtility {
 
     protected boolean isElementPresent(By by) {
         try {
-            if (driver.findElement(by).isDisplayed()){
+            if (wd.findElement(by).isDisplayed()){
                 return true;
             }else{
                 return false;
@@ -47,6 +47,25 @@ public class PagesUtility {
         } catch (NoSuchElementException e){
             return false;
         }
+    }
+
+    protected void sendKeysText(By by, String text) {
+        waitVisibilityOfElement(by);
+        wd.findElement(by).clear();
+        wd.findElement(by).sendKeys(text);
+    }
+
+    protected void clickElement(By by) {
+        waitVisibilityOfElement(by);
+        wd.findElement(by).click();
+    }
+
+    public By getElementLocator(String loc) {
+        return By.id("com.kirimo.driver:id/"+loc);
+    }
+
+    public By getFieldTextElement(String loc) {
+        return By.id("com.kirimo.driver:id/"+loc);
     }
 
 }

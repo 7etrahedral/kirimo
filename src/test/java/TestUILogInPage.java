@@ -26,10 +26,24 @@ public class TestUILogInPage extends AndroidSetup {
         ad.quit();
     }
 
-    @Test
+    @Test(priority = 0)
     public void verifyInstruction() throws Exception {
         loginpage.getInstructionText();
-        Thread.sleep(1000);
+    }
+
+    @Test(priority = 1)
+    public void verifyUsername() throws Exception {
+        loginpage.getUsernameTextField();
+    }
+
+    @Test(priority = 2)
+    public void verifyPassword() throws Exception {
+        loginpage.getPasswordTextField();
+    }
+
+    @Test(priority = 3)
+    public void verifyLoginButton() throws Exception {
+        loginpage.getLoginButton();
     }
 
 }
