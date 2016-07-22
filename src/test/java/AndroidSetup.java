@@ -17,8 +17,8 @@ public class AndroidSetup {
 
     protected void androidSetUp() throws MalformedURLException{
 //        File appDir = new File("/Users/genta/Documents/Job/Kirimo/apk");
-        File appDir = new File("/Users/ogilvydigital/Documents/apk");
-//        File appDir = new File("D:/wib_/Master/apk/");
+//        File appDir = new File("/Users/ogilvydigital/Documents/apk");
+        File appDir = new File("D:/wib_/Master/apk/");
         File app = new File(appDir, "kirimo-V.1.0.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

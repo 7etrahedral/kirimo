@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,8 +13,9 @@ import java.net.MalformedURLException;
 public class TestLoginLogout extends AndroidSetup {
 
     private LoginPage loginPage;
-    private String usernameValid;
-    private String passwordValid;
+    private String usernameValid = "wib";
+    private String passwordValid = "wibpass";
+    WebDriverWait wait;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
@@ -27,10 +29,12 @@ public class TestLoginLogout extends AndroidSetup {
 
     @Test(priority = 0)
     public void login() {
+        wait = new WebDriverWait(ad, 10);
         loginPage = new LoginPage(ad);
         loginPage.inputUsername(usernameValid);
         loginPage.inputPassword(passwordValid);
         loginPage.clickLoginButton();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Order Hari ini")));
     }
 /*
     @Test(priority = 1)
