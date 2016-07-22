@@ -27,7 +27,7 @@ public class LoginPage extends PagesUtility {
     }
 
     public void clickLoginButton() {
-        clickElement(getElementLocator(loginButton));
+        clickElement(getIDElementLocator(loginButton));
     }
 
     public void getInstructionText() {

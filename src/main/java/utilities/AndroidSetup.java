@@ -1,3 +1,5 @@
+package utilities;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -17,8 +19,8 @@ public class AndroidSetup {
 
     protected void androidSetUp() throws MalformedURLException{
 //        File appDir = new File("/Users/genta/Documents/Job/Kirimo/apk");
-//        File appDir = new File("/Users/ogilvydigital/Documents/apk");
-        File appDir = new File("D:/wib_/Master/apk/");
+        File appDir = new File("/Users/ogilvydigital/Documents/apk");
+//        File appDir = new File("D:/wib_/Master/apk/");
         File app = new File(appDir, "kirimo-V.1.0.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

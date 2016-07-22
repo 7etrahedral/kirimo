@@ -1,9 +1,12 @@
-import org.openqa.selenium.By;import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.Drawer;
 import pages.LoginPage;
+import utilities.AndroidSetup;
 
 import java.net.MalformedURLException;
 
@@ -13,6 +16,7 @@ import java.net.MalformedURLException;
 public class TestLoginLogout extends AndroidSetup {
 
     private LoginPage loginPage;
+    private Drawer drawer;
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
     WebDriverWait wait;
@@ -34,12 +38,15 @@ public class TestLoginLogout extends AndroidSetup {
         loginPage.inputUsername(usernameValid);
         loginPage.inputPassword(passwordValid);
         loginPage.clickLoginButton();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Order Hari ini")));
     }
-/*
-    @Test(priority = 1)
-    public void logout() {
 
+    @Test(priority = 1)
+    public void logout() throws Exception {
+        wait = new WebDriverWait(ad, 10);
+        drawer.clickDrawerButton();
+        drawer.clickLogoutButton();
+        drawer.clickOKConfirmation();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("com.kirimo.driver:id/textViewLoginDesc")));
     }
-*/
+
 }
