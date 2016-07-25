@@ -24,10 +24,6 @@ public class PagesUtility {
         Assert.assertTrue(isElementPresent(locator));
     }
 
-    public By getLocator(String loc) {
-        return By.id("com.kirimo.driver:id/"+loc);
-    }
-
     protected boolean isElementPresent(By by) {
         try {
             if (wd.findElement(by).isDisplayed()){

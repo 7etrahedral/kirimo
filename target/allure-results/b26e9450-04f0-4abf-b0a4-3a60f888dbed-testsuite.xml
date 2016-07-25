@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1469436729856" stop="1469436827961" version="1.4.16" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Default Suite : kirimo</name>
+    <title>Default Suite : kirimo</title>
+    <test-cases>
+        <test-case start="1469436750701" stop="1469436808319" status="passed">
+            <name>login</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="Ogilvys-MacBook-Pro-2.local"/>
+                <label name="thread" value="6881@Ogilvys-MacBook-Pro-2.local.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1469436808490" stop="1469436819367" status="passed">
+            <name>logout</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="Ogilvys-MacBook-Pro-2.local"/>
+                <label name="thread" value="6881@Ogilvys-MacBook-Pro-2.local.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

@@ -19,11 +19,12 @@ public class TestLoginLogout extends AndroidSetup {
     private Drawer drawer;
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
-    WebDriverWait wait;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
         androidSetUp();
+        loginPage = new LoginPage(ad);
+        drawer = new Drawer(ad);
     }
 
     @AfterClass
@@ -33,8 +34,6 @@ public class TestLoginLogout extends AndroidSetup {
 
     @Test(priority = 0)
     public void login() {
-        wait = new WebDriverWait(ad, 10);
-        loginPage = new LoginPage(ad);
         loginPage.inputUsername(usernameValid);
         loginPage.inputPassword(passwordValid);
         loginPage.clickLoginButton();
@@ -42,11 +41,10 @@ public class TestLoginLogout extends AndroidSetup {
 
     @Test(priority = 1)
     public void logout() throws Exception {
-        wait = new WebDriverWait(ad, 10);
         drawer.clickDrawerButton();
         drawer.clickLogoutButton();
         drawer.clickOKConfirmation();
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("com.kirimo.driver:id/textViewLoginDesc")));
+        loginPage.getInstructionText();
     }
 
 }

@@ -31,19 +31,19 @@ public class LoginPage extends PagesUtility {
     }
 
     public void getInstructionText() {
-        isWaitElementforPresent(getLocator(loginInstruction));
+        isWaitElementforPresent(getIDElementLocator(loginInstruction));
     }
 
     public void getUsernameTextField() {
-        isWaitElementforPresent(getLocator(userNameField));
+        isWaitElementforPresent(getIDElementLocator(userNameField));
     }
 
     public void getPasswordTextField() {
-        isWaitElementforPresent(getLocator(passWordField));
+        isWaitElementforPresent(getIDElementLocator(passWordField));
     }
 
     public void getLoginButton() {
-        isWaitElementforPresent(getLocator(loginButton));
+        isWaitElementforPresent(getIDElementLocator(loginButton));
     }
 
 }

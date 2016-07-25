@@ -26,10 +26,10 @@ public class Drawer extends PagesUtility  {
     }
 
     public void clickOKConfirmation() {
-        clickElement(getXPathElementLocator(warningOKButton));
+        clickElement(getIDElementLocator(warningOKButton));
     }
 
     public void clickCancelConfirmation() {
-        clickElement(getXPathElementLocator(warningCancelButton));
+        clickElement(getIDElementLocator(warningCancelButton));
     }
 }
