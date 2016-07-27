@@ -1,8 +1,3 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Drawer;
 import pages.LoginPage;
@@ -22,21 +17,10 @@ public class TestLoginLogout extends AndroidSetup {
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
 
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
-        androidSetUp();
-        loginPage = new LoginPage(ad);
-        drawer = new Drawer(ad);
-        popUpMessage = new PopUpMessage(ad);
-    }
-
-    @AfterClass
-    public void tearDown() {
-        ad.quit();
-    }
-
     @Test(priority = 0)
     public void login() {
+        loginPage = new LoginPage(ad);
+
         loginPage.inputUsername(usernameValid);
         loginPage.inputPassword(passwordValid);
         loginPage.clickLoginButton();
@@ -44,6 +28,9 @@ public class TestLoginLogout extends AndroidSetup {
 
     @Test(priority = 1)
     public void logout() throws Exception {
+        drawer = new Drawer(ad);
+        popUpMessage = new PopUpMessage(ad);
+
         drawer.clickDrawerButton();
         drawer.clickLogoutButton();
         popUpMessage.clickOKConfirmation();

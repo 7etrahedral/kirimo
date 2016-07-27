@@ -1,13 +1,9 @@
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Drawer;
 import pages.LoginPage;
 import pages.PopUpMessage;
 import pages.ProfilePage;
 import utilities.AndroidSetup;
-
-import java.net.MalformedURLException;
 
 /**
  * Created by wib_ on 7/25/16.
@@ -22,33 +18,53 @@ public class TestUIProfilePage extends AndroidSetup {
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
 
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
-        androidSetUp();
+    @Test(priority = 0)
+    public void login() {
+//        loginPage = new LoginPage(ad);
+//
+//        loginPage.inputUsername(usernameValid);
+//        loginPage.inputPassword(passwordValid);
+//        loginPage.clickLoginButton();
+        testLoginLogout = new TestLoginLogout();
+        testLoginLogout.login();
+    }
+
+    @Test(priority = 1)
+    public void verifyAllComponents() {
         profilePage = new ProfilePage(ad);
-
-        loginPage = new LoginPage(ad);
         drawer = new Drawer(ad);
-        popUpMessage = new PopUpMessage(ad);
 
-        loginPage.inputUsername(usernameValid);
-        loginPage.inputPassword(passwordValid);
-        loginPage.clickLoginButton();
+        /**
+         * Open drawer menu
+         */
         drawer.clickDrawerButton();
         drawer.clickProfileButton();
-    }
 
-    @AfterClass
-    public void tearDown() throws Exception {
-        drawer.clickDrawerButton();
-        drawer.clickLogoutButton();
-        popUpMessage.clickOKConfirmation();
-        loginPage.getInstructionText();
+        /**
+         * Verify all component in this page
+         */
+        profilePage.getProfileImage();
+        profilePage.getProfileImageBg();
+        profilePage.getProfileImageOverlay();
+        profilePage.getTextName();
+        profilePage.getFullName();
+        profilePage.getTextEmailAddress();
+        profilePage.getEmail();
+        profilePage.getTextPhoneNumber();
+        profilePage.getPhoneNumber();
+        profilePage.getImageDeliveryWallet();
+        profilePage.getTotalDelivery();
+        profilePage.getTextCompletedDelivery();
+        profilePage.getDeliveryDate();
+        profilePage.getImageEarningsWallet();
+        profilePage.getTextRP();
+        profilePage.getBalance();
+        profilePage.getTextTotalEarningsoFar();
+        profilePage.getEarningDate();
+        }
+    /*
 
-        ad.quit();
-    }
-
-    @Test(priority = 0)
+    @Test(priority = 2)
     public void verifyProfileImage() throws Exception {
         profilePage.getProfileImage();
     }
@@ -137,5 +153,5 @@ public class TestUIProfilePage extends AndroidSetup {
     public void verifyEarningDate() throws Exception {
         profilePage.getEarningDate();
     }
-
+*/
 }

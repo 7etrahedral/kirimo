@@ -1,10 +1,6 @@
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utilities.AndroidSetup;
-
-import java.net.MalformedURLException;
 
 /**
  * Created by wib_ on 6/25/16.
@@ -13,17 +9,17 @@ public class TestUILogInPage extends AndroidSetup {
 
     LoginPage loginpage;
 
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
-        androidSetUp();
+    @Test
+    public void verifyLoginPageComponents() {
         loginpage = new LoginPage(ad);
-    }
 
-    @AfterClass
-    public void tearDown() {
-        ad.quit();
-    }
+        loginpage.getInstructionText();
+        loginpage.getUsernameTextField();
+        loginpage.getPasswordTextField();
+        loginpage.getLoginButton();
+        }
 
+    /*
     @Test(priority = 0)
     public void verifyInstruction() throws Exception {
         loginpage.getInstructionText();
@@ -43,5 +39,5 @@ public class TestUILogInPage extends AndroidSetup {
     public void verifyLoginButton() throws Exception {
         loginpage.getLoginButton();
     }
-
+*/
 }
