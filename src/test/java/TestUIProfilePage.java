@@ -1,6 +1,9 @@
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.Drawer;
+import pages.LoginPage;
+import pages.PopUpMessage;
 import pages.ProfilePage;
 import utilities.AndroidSetup;
 
@@ -11,20 +14,37 @@ import java.net.MalformedURLException;
  */
 public class TestUIProfilePage extends AndroidSetup {
 
-    ProfilePage profilePage;
-    TestLoginLogout testLoginLogout;
+    private ProfilePage profilePage;
+    private TestLoginLogout testLoginLogout;
+    private LoginPage loginPage;
+    private Drawer drawer;
+    private PopUpMessage popUpMessage;
+    private String usernameValid = "wib";
+    private String passwordValid = "wibpass";
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
         androidSetUp();
         profilePage = new ProfilePage(ad);
-        testLoginLogout = new TestLoginLogout();
-        testLoginLogout.login();
+
+        loginPage = new LoginPage(ad);
+        drawer = new Drawer(ad);
+        popUpMessage = new PopUpMessage(ad);
+
+        loginPage.inputUsername(usernameValid);
+        loginPage.inputPassword(passwordValid);
+        loginPage.clickLoginButton();
+        drawer.clickDrawerButton();
+        drawer.clickProfileButton();
     }
 
     @AfterClass
     public void tearDown() throws Exception {
-        testLoginLogout.logout();
+        drawer.clickDrawerButton();
+        drawer.clickLogoutButton();
+        popUpMessage.clickOKConfirmation();
+        loginPage.getInstructionText();
+
         ad.quit();
     }
 

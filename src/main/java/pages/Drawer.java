@@ -10,8 +10,7 @@ public class Drawer extends PagesUtility  {
 
     private String drawerButton = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.view.ViewGroup[1]/android.widget.ImageButton[1]";
     private String logoutButton = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.support.v7.widget.RecyclerView[1]/android.support.v7.widget.LinearLayoutCompat[6]/android.widget.CheckedTextView[1]";
-    private String warningOKButton = "buttonDefaultPositive";
-    private String warningCancelButton= "buttonDefaultNegative";
+    private String profileButton = "//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.support.v7.widget.RecyclerView[1]/android.support.v7.widget.LinearLayoutCompat[5]/android.widget.CheckedTextView[1]";
 
     public Drawer (WebDriver driver) {
         super(driver);
@@ -25,11 +24,7 @@ public class Drawer extends PagesUtility  {
         clickElement(getXPathElementLocator(logoutButton));
     }
 
-    public void clickOKConfirmation() {
-        clickElement(getIDElementLocator(warningOKButton));
-    }
-
-    public void clickCancelConfirmation() {
-        clickElement(getIDElementLocator(warningCancelButton));
+    public void clickProfileButton() {
+        clickElement(getXPathElementLocator(profileButton));
     }
 }

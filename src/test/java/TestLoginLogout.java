@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Drawer;
 import pages.LoginPage;
+import pages.PopUpMessage;
 import utilities.AndroidSetup;
 
 import java.net.MalformedURLException;
@@ -17,6 +18,7 @@ public class TestLoginLogout extends AndroidSetup {
 
     private LoginPage loginPage;
     private Drawer drawer;
+    private PopUpMessage popUpMessage;
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
 
@@ -25,6 +27,7 @@ public class TestLoginLogout extends AndroidSetup {
         androidSetUp();
         loginPage = new LoginPage(ad);
         drawer = new Drawer(ad);
+        popUpMessage = new PopUpMessage(ad);
     }
 
     @AfterClass
@@ -43,7 +46,7 @@ public class TestLoginLogout extends AndroidSetup {
     public void logout() throws Exception {
         drawer.clickDrawerButton();
         drawer.clickLogoutButton();
-        drawer.clickOKConfirmation();
+        popUpMessage.clickOKConfirmation();
         loginPage.getInstructionText();
     }
 
