@@ -1,10 +1,8 @@
 import org.testng.annotations.Test;
-import pages.Drawer;
+import pages.DrawerMenu;
 import pages.LoginPage;
 import pages.PopUpMessage;
 import utilities.AndroidSetup;
-
-import java.net.MalformedURLException;
 
 /**
  * Created by wib_ on 6/23/16.
@@ -12,7 +10,7 @@ import java.net.MalformedURLException;
 public class TestLoginLogout extends AndroidSetup {
 
     private LoginPage loginPage;
-    private Drawer drawer;
+    private DrawerMenu drawerMenu;
     private PopUpMessage popUpMessage;
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
@@ -28,11 +26,11 @@ public class TestLoginLogout extends AndroidSetup {
 
     @Test(priority = 1)
     public void logout() throws Exception {
-        drawer = new Drawer(ad);
+        drawerMenu = new DrawerMenu(ad);
         popUpMessage = new PopUpMessage(ad);
 
-        drawer.clickDrawerButton();
-        drawer.clickLogoutButton();
+        drawerMenu.clickDrawerButton();
+        drawerMenu.clickLogoutButton();
         popUpMessage.clickOKConfirmation();
         loginPage.getInstructionText();
     }

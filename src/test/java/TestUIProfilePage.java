@@ -1,7 +1,6 @@
 import org.testng.annotations.Test;
-import pages.Drawer;
+import pages.DrawerMenu;
 import pages.LoginPage;
-import pages.PopUpMessage;
 import pages.ProfilePage;
 import utilities.AndroidSetup;
 
@@ -11,34 +10,31 @@ import utilities.AndroidSetup;
 public class TestUIProfilePage extends AndroidSetup {
 
     private ProfilePage profilePage;
-    private TestLoginLogout testLoginLogout;
     private LoginPage loginPage;
-    private Drawer drawer;
-    private PopUpMessage popUpMessage;
+    private DrawerMenu drawerMenu;
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
 
     @Test(priority = 0)
-    public void login() {
-//        loginPage = new LoginPage(ad);
-//
-//        loginPage.inputUsername(usernameValid);
-//        loginPage.inputPassword(passwordValid);
-//        loginPage.clickLoginButton();
-        testLoginLogout = new TestLoginLogout();
-        testLoginLogout.login();
+    public void accessProfilePag() {
+        loginPage = new LoginPage(ad);
+
+        loginPage.inputUsername(usernameValid);
+        loginPage.inputPassword(passwordValid);
+        loginPage.clickLoginButton();
+
+        drawerMenu = new DrawerMenu(ad);
+
+        /**
+         * Open drawerMenu menu
+         */
+        drawerMenu.clickDrawerButton();
+        drawerMenu.clickProfileButton();
     }
 
     @Test(priority = 1)
-    public void verifyAllComponents() {
+    public void verifyAllComponentsProfilePage() {
         profilePage = new ProfilePage(ad);
-        drawer = new Drawer(ad);
-
-        /**
-         * Open drawer menu
-         */
-        drawer.clickDrawerButton();
-        drawer.clickProfileButton();
 
         /**
          * Verify all component in this page
@@ -62,8 +58,7 @@ public class TestUIProfilePage extends AndroidSetup {
         profilePage.getTextTotalEarningsoFar();
         profilePage.getEarningDate();
         }
-    /*
-
+/*
     @Test(priority = 2)
     public void verifyProfileImage() throws Exception {
         profilePage.getProfileImage();
