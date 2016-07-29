@@ -23,6 +23,10 @@ public class DrawerMenu extends PagesUtility  {
         super(driver);
     }
 
+    public void getDrawerButton() {
+        isWaitElementforPresent(getXPathElementLocator(drawerButton));
+    }
+
     public void clickDrawerButton() {
         clickElement(getXPathElementLocator(drawerButton));
     }

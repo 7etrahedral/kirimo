@@ -1,33 +1,26 @@
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.DrawerMenu;
-import pages.InstructionPage;
 import pages.LoginPage;
 import pages.OrderPage;
 import utilities.AndroidSetup;
+import utilities.LoginLogout;
 
 /**
  * Created by wib_ on 7/28/16.
  */
-public class TestUIOrderPage extends AndroidSetup {
+public class TestUIOrderPage extends LoginLogout {
 
     private OrderPage orderPage;
-    private LoginPage loginPage;
     private DrawerMenu drawerMenu;
-    private String usernameValid = "wib";
-    private String passwordValid = "wibpass";
 
     @Test(priority = 0)
     public void accessOrderPage() {
-        loginPage = new LoginPage(ad);
-
-        loginPage.inputUsername(usernameValid);
-        loginPage.inputPassword(passwordValid);
-        loginPage.clickLoginButton();
-
         drawerMenu = new DrawerMenu(ad);
 
         /**
-         * Open drawer menu
+         * Open Order page
          */
         drawerMenu.clickDrawerButton();
         drawerMenu.clickOrderButton();

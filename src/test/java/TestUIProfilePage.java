@@ -3,31 +3,22 @@ import pages.DrawerMenu;
 import pages.LoginPage;
 import pages.ProfilePage;
 import utilities.AndroidSetup;
+import utilities.LoginLogout;
 
 /**
  * Created by wib_ on 7/25/16.
  */
-public class TestUIProfilePage extends AndroidSetup {
+public class TestUIProfilePage extends LoginLogout {
 
     private ProfilePage profilePage;
-    private LoginPage loginPage;
     private DrawerMenu drawerMenu;
-    private String usernameValid = "wib";
-    private String passwordValid = "wibpass";
 
     @Test(priority = 0)
     public void accessProfilePag() {
-        loginPage = new LoginPage(ad);
-
-        loginPage.inputUsername(usernameValid);
-        loginPage.inputPassword(passwordValid);
-        loginPage.clickLoginButton();
-
-        drawerMenu = new DrawerMenu(ad);
-
         /**
          * Open drawerMenu menu
          */
+        drawerMenu = new DrawerMenu(ad);
         drawerMenu.clickDrawerButton();
         drawerMenu.clickProfileButton();
     }
