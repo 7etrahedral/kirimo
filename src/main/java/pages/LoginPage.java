@@ -10,8 +10,8 @@ import utilities.PagesUtility;
 public class LoginPage extends PagesUtility {
 
     private String loginInstruction = "textViewLoginDesc";
-    private String userNameField = "username";
-    private String passWordField = "password";
+    private String usernameField = "username";
+    private String passwordField = "password";
     private String loginButton = "action";
 
     public LoginPage(WebDriver driver) {
@@ -19,31 +19,31 @@ public class LoginPage extends PagesUtility {
     }
 
     public void inputUsername(String username) {
-        sendKeysText(getFieldTextElement(userNameField), username);
+        sendKeysText(getFieldTextElement(usernameField), username);
     }
 
     public void inputPassword(String password) {
-        sendKeysText(getFieldTextElement(passWordField), password);
+        sendKeysText(getFieldTextElement(passwordField), password);
     }
 
     public void clickLoginButton() {
-        clickElement(getElementLocator(loginButton));
+        clickElement(getIDElementLocator(loginButton));
     }
 
     public void getInstructionText() {
-        isWaitElementforPresent(getLocator(loginInstruction));
+        isWaitElementforPresent(getIDElementLocator(loginInstruction));
     }
 
     public void getUsernameTextField() {
-        isWaitElementforPresent(getLocator(userNameField));
+        isWaitElementforPresent(getIDElementLocator(usernameField));
     }
 
     public void getPasswordTextField() {
-        isWaitElementforPresent(getLocator(passWordField));
+        isWaitElementforPresent(getIDElementLocator(passwordField));
     }
 
     public void getLoginButton() {
-        isWaitElementforPresent(getLocator(loginButton));
+        isWaitElementforPresent(getIDElementLocator(loginButton));
     }
 
 }

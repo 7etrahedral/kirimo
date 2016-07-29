@@ -1,7 +1,9 @@
-import io.appium.java_client.AppiumDriver;
+package utilities;
+
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -37,6 +39,16 @@ public class AndroidSetup {
         ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
         ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    }
+
+    @BeforeClass
+    public void setUp() throws Exception {
+        androidSetUp();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        ad.quit();
     }
 
 }

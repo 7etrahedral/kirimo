@@ -24,10 +24,6 @@ public class PagesUtility {
         Assert.assertTrue(isElementPresent(locator));
     }
 
-    public By getLocator(String loc) {
-        return By.id("com.kirimo.driver:id/"+loc);
-    }
-
     protected boolean isElementPresent(By by) {
         try {
             if (wd.findElement(by).isDisplayed()){
@@ -60,8 +56,12 @@ public class PagesUtility {
         wd.findElement(by).click();
     }
 
-    public By getElementLocator(String loc) {
-        return By.id("com.kirimo.driver:id/"+loc);
+    public By getIDElementLocator(String idloc) {
+        return By.id("com.kirimo.driver:id/"+idloc);
+    }
+
+    public By getXPathElementLocator(String xpathloc) {
+        return By.xpath(xpathloc);
     }
 
     public By getFieldTextElement(String loc) {
