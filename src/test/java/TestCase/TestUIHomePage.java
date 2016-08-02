@@ -1,3 +1,5 @@
+package TestCase;
+
 import org.testng.annotations.Test;
 import pages.DrawerMenu;
 import pages.HomePage;
