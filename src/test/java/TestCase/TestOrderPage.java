@@ -1,6 +1,7 @@
+package TestCase;
+
 import org.testng.annotations.Test;
 import pages.*;
-import utilities.AndroidSetup;
 
 /**
  * Created by wib_ on 7/29/16.
