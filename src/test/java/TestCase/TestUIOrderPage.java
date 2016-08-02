@@ -1,12 +1,8 @@
 package TestCase;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.DrawerMenu;
-import pages.LoginPage;
 import pages.OrderPage;
-import utilities.AndroidSetup;
 import utilities.LoginLogout;
 
 /**

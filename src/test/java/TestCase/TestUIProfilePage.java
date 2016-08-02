@@ -2,9 +2,7 @@ package TestCase;
 
 import org.testng.annotations.Test;
 import pages.DrawerMenu;
-import pages.LoginPage;
 import pages.ProfilePage;
-import utilities.AndroidSetup;
 import utilities.LoginLogout;
 
 /**

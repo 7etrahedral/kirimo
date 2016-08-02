@@ -1,11 +1,6 @@
 package TestCase;
 
 import org.testng.annotations.*;
-import pages.DrawerMenu;
-import pages.LoginPage;
-import pages.OrderPage;
-import pages.PopUpMessage;
-import utilities.AndroidSetup;
 import utilities.LoginLogout;
 
 /**

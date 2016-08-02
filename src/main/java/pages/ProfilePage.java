@@ -6,7 +6,7 @@ import utilities.PagesUtility;
 /**
  * Created by wib_ on 7/25/16.
  */
-public class ProfilePage extends PagesUtility{
+public class ProfilePage extends PagesUtility {
     private String profileImage = "profile_image";
     private String profileImageBg = "profile_image_bg";
     private String profileImageBgOverlay = "profile_image_bg_overlay";
