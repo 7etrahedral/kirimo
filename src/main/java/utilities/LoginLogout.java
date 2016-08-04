@@ -26,7 +26,6 @@ public class LoginLogout extends AndroidSetup {
         loginPage.clickLoginButton();
     }
 
-    @AfterClass
     public void logout() throws Exception {
         drawerMenu = new DrawerMenu(ad);
         popUpMessage = new PopUpMessage(ad);

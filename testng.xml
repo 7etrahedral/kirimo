@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Kirimo" verbose="1" parallel="tests" thread-count="1">
+    <test name="Test Login Logout" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestLoginLogout"/>
+        </classes>
+    </test>
+    <test name="Test Oder Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestOrderPage"/>
+        </classes>
+    </test>
+    <test name="UI Drawer Menu" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIDrawerMenu"/>
+        </classes>
+    </test>
+    <test name="UI Home Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIHomePage"/>
+        </classes>
+    </test>
+    <test name="UI Instruction Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIInstructionPage"/>
+        </classes>
+    </test>
+    <test name="UI Login Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUILogInPage"/>
+        </classes>
+    </test>
+    <test name="UI Order History Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIOrderHistoryPage"/>
+        </classes>
+    </test>
+    <test name="UI Order Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIOrderPage"/>
+        </classes>
+    </test>
+    <test name="UI Profil Page" preserve-order="false">
+        <classes>
+            <class name="TestCase.TestUIProfilePage"/>
+        </classes>
+    </test>
+</suite>
