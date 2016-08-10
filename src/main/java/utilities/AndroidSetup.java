@@ -9,6 +9,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -27,7 +28,7 @@ public class AndroidSetup {
     protected String reportpath;
     protected String clasname = getClass().getName();
 
-    protected void androidSetUp() throws MalformedURLException{
+    protected void androidSetUp(String udid) throws MalformedURLException{
 //        File appDir = new File("/Users/genta/Documents/Job/Kirimo/apk");
         File appDir = new File("/Users/ogilvydigital/Documents/apk");
 //        File appDir = new File("D:/wib_/Master/apk/");
@@ -37,7 +38,8 @@ public class AndroidSetup {
         capabilities.setCapability("appium-version", "1.0");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("platformVersion", "6.0");
-        capabilities.setCapability("deviceName", "Nexus 6P");
+//        capabilities.setCapability("deviceName", "Nexus 6P");
+        capabilities.setCapability("deviceName", udid);
 
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("appPackage", "com.kirimo.driver");
@@ -46,7 +48,7 @@ public class AndroidSetup {
         capabilities.setCapability("noReset", false);
         capabilities.setCapability("fullReset", true);
 
-        ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        ad = new AndroidDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
 
         extentmngr = new ExtentManager();
         reportpath = extentmngr.reportPath(clasname);
@@ -57,9 +59,10 @@ public class AndroidSetup {
         ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
+    @Parameters({"udid"})
     @BeforeClass
-    public void setUp() throws Exception {
-        androidSetUp();
+    public void setUp(String udid) throws Exception {
+        androidSetUp(udid);
     }
 
     @AfterClass

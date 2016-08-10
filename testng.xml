@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Kirimo" verbose="1" parallel="tests" thread-count="1">
     <test name="Test Login Logout" preserve-order="false">
+        <parameter name="udid" value="http://192.168.1.30:4444/wd/hub"/>
+        <classes>
+            <class name="TestCase.TestLoginLogout"/>
+        </classes>
+    </test>
+    <!--
+    <test name="Test Login Logout nexus 5" preserve-order="false">
+        <parameter name="udid" value="061d21df0b2bc24b"/>
+        <classes>
+            <class name="TestCase.TestLoginLogout"/>
+        </classes>
+    </test>
+    <test name="Test Login Logout nexus 6" preserve-order="false">
+        <parameter name="udid" value="ENU7N15A28011693"/>
         <classes>
             <class name="TestCase.TestLoginLogout"/>
         </classes>
@@ -44,5 +58,5 @@
         <classes>
             <class name="TestCase.TestUIProfilePage"/>
         </classes>
-    </test>
+    </test>-->
 </suite>
