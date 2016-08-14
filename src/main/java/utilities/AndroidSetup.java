@@ -6,10 +6,7 @@ import com.relevantcodes.extentreports.NetworkMode;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -26,12 +23,13 @@ public class AndroidSetup {
     protected ExtentTest test;
     protected ExtentManager extentmngr;
     protected String reportpath;
-    protected String clasname = getClass().getName();
+    protected String classname = getClass().getName();
 
     protected void androidSetUp(String udid) throws MalformedURLException{
 //        File appDir = new File("/Users/genta/Documents/Job/Kirimo/apk");
-        File appDir = new File("/Users/ogilvydigital/Documents/apk");
+//        File appDir = new File("/Users/ogilvydigital/Documents/apk");
 //        File appDir = new File("D:/wib_/Master/apk/");
+        File appDir = new File("./Resources");
         File app = new File(appDir, "kirimo-V.1.0.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -48,24 +46,24 @@ public class AndroidSetup {
         capabilities.setCapability("noReset", false);
         capabilities.setCapability("fullReset", true);
 
-        ad = new AndroidDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+        ad = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
         extentmngr = new ExtentManager();
-        reportpath = extentmngr.reportPath(clasname);
+        reportpath = extentmngr.reportPath(classname);
 
         report = new ExtentReports(reportpath, false, NetworkMode.ONLINE);
-        test = report.startTest(clasname);
+        test = report.startTest(classname);
 
         ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
     @Parameters({"udid"})
-    @BeforeClass
+    @BeforeTest
     public void setUp(String udid) throws Exception {
         androidSetUp(udid);
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown() {
         report.endTest(test);
         report.flush();

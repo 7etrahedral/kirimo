@@ -14,7 +14,7 @@ public class TestUIHomePage extends LoginLogout {
     private HomePage homePage;
 
     @Test(priority = 0)
-    public void verifyAllComponentshomePage() {
+    public void verifyAllComponentsHomePage() {
         homePage = new HomePage(ad);
 
         homePage.getOrderTitle();

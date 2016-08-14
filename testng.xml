@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Kirimo" verbose="1" parallel="tests" thread-count="1">
+<suite name="Kirimo" verbose="1" thread-count="1">
+    <test name="Test Login Logout nexus 5" preserve-order="true">
+        <parameter name="udid" value="061d21df0b2bc24b"/>
+        <!--<packages>-->
+            <!--<package name="TestCase" />-->
+        <!--</packages>-->
+        <classes>
+            <class name="TestCase.TestUIOrderPage" />
+            <class name="TestCase.TestUIHomePage" />
+        </classes>
+    </test>
+    <!--
     <test name="Test Login Logout" preserve-order="false">
         <parameter name="udid" value="http://192.168.1.30:4444/wd/hub"/>
         <classes>
             <class name="TestCase.TestLoginLogout"/>
         </classes>
     </test>
-    <!--
     <test name="Test Login Logout nexus 5" preserve-order="false">
         <parameter name="udid" value="061d21df0b2bc24b"/>
         <classes>

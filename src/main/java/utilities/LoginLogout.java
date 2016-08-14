@@ -1,7 +1,9 @@
 package utilities;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import pages.DrawerMenu;
 import pages.LoginPage;
 import pages.PopUpMessage;
@@ -17,8 +19,8 @@ public class LoginLogout extends AndroidSetup {
     private String usernameValid = "wib";
     private String passwordValid = "wibpass";
 
-    @BeforeClass
-    public void login() {
+    @BeforeTest
+    public void login() throws Exception {
         loginPage = new LoginPage(ad);
 
         loginPage.inputUsername(usernameValid);
@@ -26,6 +28,7 @@ public class LoginLogout extends AndroidSetup {
         loginPage.clickLoginButton();
     }
 
+    @AfterTest
     public void logout() throws Exception {
         drawerMenu = new DrawerMenu(ad);
         popUpMessage = new PopUpMessage(ad);

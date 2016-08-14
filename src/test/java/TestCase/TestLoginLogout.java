@@ -23,7 +23,7 @@ public class TestLoginLogout extends LoginLogout {
     @TestCaseId("TC_KRM_001_001")
     @Title("Verify user is able to log in")
     @Test(priority = 1)
-    public void testLogin() {
+    public void testLogin() throws Exception {
         login();
     }
 

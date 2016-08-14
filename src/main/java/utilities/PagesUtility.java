@@ -19,7 +19,7 @@ public class PagesUtility {
     }
 
     public void waitVisibilityOfElement(By locator) {
-        WebDriverWait wait = new WebDriverWait(wd, 20);
+        WebDriverWait wait = new WebDriverWait(wd, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         Assert.assertTrue(isElementPresent(locator));
     }
